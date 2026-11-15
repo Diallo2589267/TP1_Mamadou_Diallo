@@ -19,7 +19,7 @@ class ReviewRessource extends JsonResource
             'rating' => $this->rating,
             'comment' => $this->comment,
             'user_id' => $this->user_id,
-            'equipment_id' => $this->equipment_id,
+            'rental_id' => $this->rental_id,
         ];
     }
 }

@@ -19,7 +19,7 @@ class EquipmentRessource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'dailyPrice' => $this->dailyPrice,
-            'categorie_id' => $this->categorie_id,
+            'categorie' => $this->categorie?->name,
         ];
     }
 }
