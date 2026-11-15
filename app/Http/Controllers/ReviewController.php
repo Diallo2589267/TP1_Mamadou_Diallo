@@ -51,7 +51,7 @@ class ReviewController extends Controller
             ], 404);
         }
 
-        $review->destroy();
+        $review->delete();
 
         return response()->json([
                 'message' => 'Critère supprimé'

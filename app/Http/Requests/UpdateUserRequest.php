@@ -26,8 +26,8 @@ class UpdateUserRequest extends FormRequest
             //
             'firstName'=>'required|max:50',
             'lastName'=>'max:50',
-            'email'=>'required|unique:users|max:50',
-            'phone'=>'unique:users|max:12'
+            'email'=>'required|max:50',
+            'phone'=>'max:12'
         ];
     }
 }

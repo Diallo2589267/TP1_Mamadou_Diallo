@@ -85,7 +85,7 @@ class UserController extends Controller
                     new OA\Property(property: "firstName", type: "string", example: "Sow"),
                     new OA\Property(property: "lastName", type: "string", example: "Oumar"),
                     new OA\Property(property: "email", type: "string", format: "email", example: "oumar@example.com"),
-                    new OA\Property(property: "phone", type: "string", example: "+15140041144")
+                    new OA\Property(property: "phone", type: "string", example: "+15140042144")
                 ]
             )
         ),

@@ -227,7 +227,7 @@
                                     },
                                     "phone": {
                                         "type": "string",
-                                        "example": "+15140041144"
+                                        "example": "+15140042144"
                                     }
                                 },
                                 "type": "object"
