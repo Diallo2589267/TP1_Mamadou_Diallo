@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 //equipments
 Route::get('/equipments', [\App\Http\Controllers\EquipmentController::class, 'index']);
 //moyenne
-Route::get('/averageRentalPrice/{equipment_id}',[\App\Http\Controllers\EquipmentController::class, 'averageRentalPrice']);
+Route::get('/equipments/{equipment_id}/average-rental-price',[\App\Http\Controllers\EquipmentController::class, 'averageRentalPrice']);
 // popularite
 Route::get('/equipments/{id}/popularite',[\App\Http\Controllers\EquipmentController::class,'popularite']);
 
