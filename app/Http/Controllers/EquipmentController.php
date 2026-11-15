@@ -30,7 +30,7 @@ class EquipmentController extends Controller
                 response: 404,
                 description: "Equipement introuvable"
             ),
-             new OA\Response(
+            new OA\Response(
                 response: 500,
                 description: "Erreur Serveur"
             )
@@ -48,6 +48,79 @@ class EquipmentController extends Controller
     }
 
 
+
+    #[OA\Get(
+        path: "/api/equipments/{equipment_id}/average-rental-price",
+        summary: "Calculer le prix moyen des locations d'un équipement",
+        tags: ["Rental"],
+        parameters: [
+            new OA\Parameter(
+                name: "equipment_id",
+                in: "path",
+                required: true,
+                description: "Identifiant de l'équipement",
+                schema: new OA\Schema(
+                    type: "integer",
+                    example: 1
+                )
+            ),
+            new OA\Parameter(
+                name: "minDate",
+                in: "query",
+                required: false,
+                description: "Date minimale de début des locations (format YYYY-MM-DD)",
+                schema: new OA\Schema(
+                    type: "string",
+                    format: "date",
+                    example: "2026-01-01",
+                    nullable: true
+                )
+            ),
+            new OA\Parameter(
+                name: "maxDate",
+                in: "query",
+                required: false,
+                description: "Date maximale de début des locations (format YYYY-MM-DD)",
+                schema: new OA\Schema(
+                    type: "string",
+                    format: "date",
+                    example: "2026-12-31",
+                    nullable: true
+                )
+            )
+        ],
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: "Prix moyen calculé avec succès",
+                content: new OA\JsonContent(
+                    properties: [
+                        new OA\Property(
+                            property: "equipment_id",
+                            type: "integer",
+                            example: 1
+                        ),
+                        new OA\Property(
+                            property: "averageTotalPrice",
+                            type: "number",
+                            format: "float",
+                            nullable: true,
+                            example: 125.50
+                        )
+                    ],
+                    type: "object"
+                )
+            ),
+            new OA\Response(
+                response: 404,
+                description: "Équipement introuvable"
+            ),
+            new OA\Response(
+                response: 422,
+                description: "Erreur de validation des paramètres"
+            )
+        ]
+    )]
     //Reponse optenu en utilisant chatgpt
     public function averageRentalPrice(Request $request, string $equipment_id)
     {
@@ -113,7 +186,7 @@ class EquipmentController extends Controller
                 response: 404,
                 description: "Equipement introuvable"
             ),
-             new OA\Response(
+            new OA\Response(
                 response: 500,
                 description: "Erreur Serveur"
             )
