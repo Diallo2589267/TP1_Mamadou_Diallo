@@ -27,7 +27,7 @@ class RentalController extends Controller
         tags: ["Rentals"],
         parameters: [
             new OA\Parameter(
-                name: "id",
+                name: "user_id",
                 in: "path",
                 required: true,
                 description: "Identifiant de l'utilisateur",
