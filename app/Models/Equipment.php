@@ -14,12 +14,12 @@ class Equipment extends Model
         'name',
         'description',
         'dailyPrice',
-        'categorie_id',
+        'category_id',
     ];
 
     public function categorie()
     {
-        return $this->belongsTo(Categorie::class);
+        return $this->belongsTo(Categorie::class,'category_id');
     }
 
     public function rentals()

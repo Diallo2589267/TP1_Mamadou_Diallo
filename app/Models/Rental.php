@@ -20,12 +20,12 @@ class Rental extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function equipment()
     {
-        return $this->belongsTo(Equipment::class);
+        return $this->belongsTo(Equipment::class,'equipment_id');
     }
 
     public function reviews()
