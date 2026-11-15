@@ -1,0 +1,273 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API REST DE GESTION DE LOCATION D’ÉQUIPEMENTS SPORTIFS",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/equipments": {
+            "get": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "liste des equipements de 20 par page",
+                "description": "Display a listing of the resource.",
+                "operationId": "6ef4946ec56ce0f0c3e613f7c57d37f2",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Equipement introuvable"
+                    },
+                    "500": {
+                        "description": "Erreur Serveur"
+                    }
+                }
+            }
+        },
+        "/api/equipments/{id}/popularite": {
+            "get": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "Retourne la popularite d'un equipement",
+                "operationId": "868c424c2467f65db1c6b4e66b175e9e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de l'equipement",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Equipement introuvable"
+                    },
+                    "500": {
+                        "description": "Erreur Serveur"
+                    }
+                }
+            }
+        },
+        "/api/rental/{user_id}": {
+            "get": {
+                "tags": [
+                    "Rentals"
+                ],
+                "summary": "Retourne les locations d'un utilisateur",
+                "description": "Display the specified resource.",
+                "operationId": "f291aa602f2cccfd7ae3dcd26c9b5ff6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Rental introuvable"
+                    },
+                    "500": {
+                        "description": "Erreur Serveur"
+                    }
+                }
+            }
+        },
+        "/api/reviews/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Supprimer un Critère",
+                "description": "Remove the specified resource from storage.",
+                "operationId": "5dcd56cc3bcd319f0a7a4f36dcf779a5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du Critère à supprimer",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Critère supprimé avec succès"
+                    },
+                    "404": {
+                        "description": "Critère introuvable"
+                    },
+                    "500": {
+                        "description": "Erreur Serveur"
+                    }
+                }
+            }
+        },
+        "/api/users/create": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Ajouter un nouvel utilisateur",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "d37ea9642c2cfbe867361ca7da44eec7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "firstName",
+                                    "lastName",
+                                    "email",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string",
+                                        "example": "Mamadou"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "example": "Diallo"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "mamadou@example.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+15140041144"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Utilisateur créé avec succès"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    },
+                    "500": {
+                        "description": "Erreur Serveur"
+                    }
+                }
+            }
+        },
+        "/api/users/update/{id}": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Modifier un utilisateur",
+                "description": "Update the specified resource in storage.",
+                "operationId": "97d6cee3e6d901306b2a691941b07ef0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de l'utilisateur",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "firstName",
+                                    "lastName",
+                                    "email",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string",
+                                        "example": "Sow"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "example": "Oumar"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "oumar@example.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+15140042144"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Utilisateur modifié avec succès"
+                    },
+                    "404": {
+                        "description": "Utilisateur introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    },
+                    "500": {
+                        "description": "Erreur Serveur"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Equipment",
+            "description": "Equipment"
+        },
+        {
+            "name": "Rentals",
+            "description": "Rentals"
+        },
+        {
+            "name": "Reviews",
+            "description": "Reviews"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        }
+    ]
+}
